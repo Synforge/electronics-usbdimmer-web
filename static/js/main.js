@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-	var host = window.location.host;
-	var socket = new WebSocket('ws://' + host + '/control');
-
 	function change(evt) {
 		var value = this.value;
 		var channel = $(this).data('channel');
@@ -24,11 +21,15 @@ $(document).ready(function() {
 	$(function() {
 		// Open the socket
 		try {
+			var host = window.location.host;
+			var socket = new WebSocket('ws://' + host + '/control');
+
 			socket.onopen = function(event) {
+				alert('Socket Opened');
 				$('.lightSlider').change(change);
 			};
 		} catch(e) {
-			alert(e);
+			alert('Some sort of error happened....');
 		}
 	}); 
 
