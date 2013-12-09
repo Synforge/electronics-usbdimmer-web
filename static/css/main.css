@@ -4,6 +4,8 @@ html, body {
 
 	margin: 0;
 	padding: 0;
+
+	font-family: 'Verdana', sans-serif;
 }
 
 * {
@@ -52,11 +54,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
-	width: 100%;
+	width: 300px;
 	max-width: 720px;
 
 	padding: 20px 10px;
-	padding-bottom: 0;
+
+	display: block;
+	margin: 0 auto;
 }
 
 .channel {
@@ -74,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-.lightSlider {
+input[type='range'] {
 	display: block;
 
 	width: 100%;
@@ -97,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 	border-right: 1px solid #90b6b6;
 }
 
-.lightSlider::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
 	-webkit-appearance: none;
 
 	border-radius: 100%;
@@ -111,4 +115,126 @@ h1, h2, h3, h4, h5, h6 {
 	background-position: center center;
 
 	border: 2px solid #f0f0f0;
+}
+
+div.sequencer table {
+	width: 100%;
+	border-collapse: separate;
+    border-spacing: 1px 4px;
+}
+
+@keyframes slider {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes slider {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+div.sequencer div.line {
+	width: 2px;
+	height: 210px;
+	background-color: #FFF;
+	position: absolute;
+	left: 0;
+
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-name: "slider";
+    -webkit-animation-iteration-count: infinite;
+
+    animation-timing-function: linear;
+    animation-name: "slider";
+    animation-iteration-count: infinite;
+}
+
+div.sequencer table tr td {
+	opacity: 0.5;
+}
+
+div.sequencer table tr td.selected {
+	opacity: 1;
+}
+
+div.sequencer table tr:nth-child(1) td {
+	background-color: rgb(74,167,167);
+}
+
+div.sequencer table tr:nth-child(2) td {
+	background-color: rgb(147,184,73);
+}
+
+div.sequencer table tr:nth-child(3) td {
+	background-color: rgb(80,54,42);
+}
+
+div.sequencer table tr:nth-child(4) td {
+	background-color: rgb(232,110,43);
+}
+
+div.sequencer table tr:nth-child(5) td {
+	background-color: rgb(90,169,212);
+}
+
+div.sequencer table tr:nth-child(6) td {
+	background-color: rgb(4,116,188);
+}
+
+div.sequencer table td {
+	margin-bottom: 5px;
+	height: 30px;
+
+}
+
+.speed {
+	display: block;
+	margin-top: 20px;
+	width: 50% !important;
+	float: right;
+}
+
+.notice, .confirm, .warning, .error {
+    padding: 7px 40px;
+    margin-bottom: 10px;
+
+    border-width: 1px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+
+    text-align: center;
+    font-weight: bold;
+    color:#FFF;
+
+    background-image: url(../img/message_background.png);
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    text-shadow: 0 0 8px #FFF;
+}
+
+.confirm {
+    background-color: #0e7b20;
+}
+
+
+.notice {
+    background-color: #666;
+}
+
+.warning {
+    background-color: #bc540f;
+}
+
+.error {
+    background-color:#CC0000;
 }
